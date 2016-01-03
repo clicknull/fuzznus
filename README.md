@@ -1,5 +1,5 @@
 # fuzznus 
-FuzzNus python based GDB script that there are a lot of features. Recently I was doing research on grub, therefore I wrote it using Python API. FuzzNus allows you to the desired instruction searching in frame pointers (or memory). Then you can use as you want (such as instruction breakpoint,vulnerability instruction etc.)
+FuzzNus python based GDB script that there are a lot of features. Recently I was doing research on grub, therefore I wrote it using Python API. FuzzNus allows you to the desired instruction searching in frame pointers (or memory). Then you can use as you want (such as set a breakpoint depending on the content,searching vulnerable instruction etc.)
 
 Usage: </br>
   (gdb) source /home/dmr/fuzznus.py </br>
