@@ -2,7 +2,7 @@ import gdb
 class FuzzNus (gdb.Command):
 	"Fuzznus gdb script for searching given patterns in memory (equality instruction set)."
 	def __init__ (self):
-		super ().__init__ ("ci",gdb.COMMAND_BREAKPOINTS,gdb.COMPLETE_NONE, False)
+		super ().__init__ ("nus",gdb.COMMAND_BREAKPOINTS,gdb.COMPLETE_NONE, False)
 
 	def callfr(self,current_frame,addr,arg):
 		inst_enc = current_frame.architecture().disassemble(addr)
