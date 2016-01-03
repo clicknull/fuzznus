@@ -10,7 +10,9 @@ class FuzzNus (gdb.Command):
 			addr+=inst_enc[0]['length']
 			inst_enc = current_frame.architecture().disassemble(addr)
 			if(inst_enc[0]['asm'].startswith(arg)):
-				print(hex(inst_enc[0]['addr'])+"==="+inst_enc[0]['asm'])
+                                print("Disasm")
+                                print(hex(inst_enc[0]['addr'])+" === "+inst_enc[0]['asm'])
+                                print("Frame name:")
 				print(current_frame.name())
                         #if INSTRUCTION Pointer reach to return instruction trigging breakpoint
 			if(inst_enc[0]['asm'].startswith('ret')):
