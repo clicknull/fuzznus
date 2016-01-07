@@ -7,13 +7,13 @@ class FuzzNus (gdb.Command):
 	def callfr(self,current_frame,addr,arg):
 		inst_enc = current_frame.architecture().disassemble(addr)
 		while(True):
-			addr+=inst_enc[0]['length']
 			inst_enc = current_frame.architecture().disassemble(addr)
 			if(inst_enc[0]['asm'].startswith(arg)):
                                 print("Disasm")
                                 print(hex(inst_enc[0]['addr'])+" === "+inst_enc[0]['asm'])
                                 print("Frame name:")
 				print(current_frame.name())
+			addr+=inst_enc[0]['length']
                         #if INSTRUCTION Pointer reach to return instruction trigging breakpoint
 			if(inst_enc[0]['asm'].startswith('ret')):
 				break
@@ -24,7 +24,7 @@ class FuzzNus (gdb.Command):
 		while current_frame is not None:
 			counter +=1
 			addr = current_frame.pc()
-			if(addr !=0):
+			if(addr > -1):
 				self.callfr(current_frame,addr,arg)
 				#print(current_frame.name())
 			current_frame = current_frame.older()
