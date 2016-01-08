@@ -26,7 +26,6 @@ class FuzzNus (gdb.Command):
 			addr = current_frame.pc()
 			if(addr > -1):
 				self.callfr(current_frame,addr,arg)
-				#print(current_frame.name())
 			current_frame = current_frame.older()
 		return hex(0xdeadbeef)
 
